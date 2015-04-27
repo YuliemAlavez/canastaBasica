@@ -16,6 +16,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Productos"
+            android:label="@string/title_activity_productos" >
+        </activity>
+
+
+        <!-- All Product Activity -->
+        <activity
+            android:name=".AllProductsActivity"
+            android:label="All Products" >
+        </activity>
+
+
+
+        <!-- Edit Product Activity -->
+        <activity
+            android:name=".EditProductActivity"
+            android:label="Edit Product" >
+        </activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
