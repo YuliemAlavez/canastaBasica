@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-class CreateDatabase < ActiveRecord::Migration
+class CreateCanastabasica < ActiveRecord::Migration
   def self.up
     ActiveRecord::Schema.define(version: 0) do
 
@@ -41,30 +41,30 @@ class CreateDatabase < ActiveRecord::Migration
         t.boolean "tieneNumeroDeProductos", limit: 1,                   null: false
         t.string  "numeroDePaquetes",       limit: 45
         t.boolean "tieneNumeroDePaquetes",  limit: 1,                   null: false
-        t.integer "id",              limit: 4,                   null: false
-        t.integer "id",            limit: 4,                   null: false
+        t.integer "id1",              limit: 4,                   null: false
+        t.integer "id2",            limit: 4,                   null: false
       end
 
       add_index "producto", ["codigoDeBarras"], name: "codigoDeBarras_UNIQUE", unique: true, using: :btree
-      add_index "producto", ["id"], name: "fk_Producto_Categoria1_idx", using: :btree
-      add_index "producto", ["id"], name: "fk_Producto_Empresa_idx", using: :btree
+      add_index "producto", ["id1"], name: "fk_Producto_Categoria1_idx", using: :btree
+      add_index "producto", ["id2"], name: "fk_Producto_Empresa_idx", using: :btree
 
       create_table "registro", primary_key: "id", force: :cascade do |t|
         t.decimal  "cantidad",              precision: 12, scale: 2, default: 0.0
         t.datetime "time"
-        t.integer  "id",  limit: 4,                                         null: false
+        t.integer  "id1",  limit: 4,                                         null: false
         t.string   "longitud",   limit: 45
         t.string   "latitud",    limit: 45
         t.string   "altitud",    limit: 45
-        t.integer  "id", limit: 4,                                         null: false
+        t.integer  "id2", limit: 4,                                         null: false
         t.decimal  "precio",                precision: 12, scale: 2
         t.integer  "puntuacion", limit: 4
-        t.integer  "id",   limit: 4,                                         null: false
+        t.integer  "id3",   limit: 4,                                         null: false
       end
 
-      add_index "registro", ["id"], name: "fk_Registro_Producto1_idx", using: :btree
-      add_index "registro", ["id"], name: "fk_Registro_Tienda1_idx", using: :btree
-      add_index "registro", ["id"], name: "fk_Registro_Usuario1_idx", using: :btree
+      add_index "registro", ["id1"], name: "fk_Registro_Producto1_idx", using: :btree
+      add_index "registro", ["id2"], name: "fk_Registro_Tienda1_idx", using: :btree
+      add_index "registro", ["id3"], name: "fk_Registro_Usuario1_idx", using: :btree
 
       create_table "tienda", primary_key: "id", force: :cascade do |t|
         t.string "nombre",   limit: 255, null: false
